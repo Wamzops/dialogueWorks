@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "tagline": "A Better Way to Build Communities",
+    "title": "Peacebuilding & Conflict Prevention",
+    "description": "We work directly with communities to identify and address the root causes of conflict before it escalates — creating lasting peace from the ground up.",
+    "icon": "handshake",
+    "link": "#"
+  },
+  {
+    "id": 2,
+    "tagline": "A Better Way to Build Communities",
+    "title": "Elections Peacebuilding",
+    "description": "We engage communities before, during, and after elections to prevent electoral violence and ensure that democratic processes strengthen rather than divide societies.",
+    "icon": "elections",
+    
+    "link": "#"
+  },
+  {
+    "id": 3,
+    "tagline": "A Better Way to Build dialogue",
+    "title": "Governance Dialogue & Public Participation",
+    "description": "We bridge the gap between citizens and their governments by creating structured dialogue spaces where communities have a real voice in decisions that affect their lives.",
+    "icon": "governance",
+    "link": "#"
+  },
+  {
+    "id": 4,
+    "tagline": "A Better Way to Build Communities",
+    "title": "Community Safety & Policing",
+    "description": "We strengthen trust between communities and security actors, building safer neighbourhoods through collaboration, dialogue, and shared responsibility.",
+    "icon": "safety",
+    "link": "#"
+  },
+  {
+    "id": 5,
+    "tagline": "A Better Way to Build Communities",
+    "title": "Preventing Violent Extremism (PCVE)",
+    "description": "We build community resilience against radicalization and violent extremism by addressing the social, political, and economic conditions that make communities vulnerable.",
+    "icon": "pcve",
+    "link": "#"
+  },
+  {
+    "id": 6,
+    "tagline": "A Better Way to Build Communities",
+    "title": "Women, Peace & Security",
+    "description": "We champion the protection and meaningful participation of women in all peace and security processes, while actively working to prevent gender-based violence.",
+    "icon": "women-peace",
+    "link": "#"
+  },
+  {
+    "id": 7,
+    "tagline": "A Better Way to Build Communities",
+    "title": "Research & Data Analytics",
+    "description": "We generate evidence-based insights that inform smarter, more effective peacebuilding programs — turning community data into actionable knowledge.",
+    "icon": "research",
+    "link": "#"
+  },
+  {
+    "id": 8,
+    "tagline": "A Better Way to Build Communities",
+    "title": "Capacity Building",
+    "description": "We equip individuals, communities, and institutions with the skills, tools, and confidence to sustain peace long after our programs end.",
+    "icon": "capacity",
+    "link": "#"
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "Social Media Manager",
+    "department": "Marketing and Communications",
+    "location": "Nairobi, Kenya",
+    "type": "Full-Time"
+  },
+  {
+    "id": 2,
+    "title": "Peacebuilding Volunteer Researcher",
+    "department": "Research and Development (R&D)",
+    "location": "Nairobi, Kenya",
+    "type": "Voluntary - Part-Time"
+  }
+
+]

@@ -1,0 +1,26 @@
+
+import PricingHero from '@/features/pricing/components/pricing-hero';
+import PricingCards from '@/features/pricing/components/pricing-cards';
+import ComparisonTable from '@/features/pricing/components/comparison-table';
+import CTASection from '@/components/layout/cta-section';
+import Footer from '@/components/layout/footer';
+import pricingData from '@/data/pricing.json';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Pricing - Flora&Fauna',
+};
+
+export default function PricingPage() {
+  return (
+  <div className="antialiased bg-[#f7f7f9] text-body font-body">
+
+      <PricingHero />
+      <PricingCards plans={pricingData.plans} />
+      <ComparisonTable plans={pricingData.plans} features={pricingData.features} />
+
+      <CTASection />
+      <Footer backgroundImage="images/footer-waves-left-bottom.png" />
+    </div>
+  );
+}
