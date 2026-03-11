@@ -1,16 +1,16 @@
 "use client";
-import { useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 const PageTransitionOverlay = dynamic(
-  () => import("@/components/PageTransitionOverlay"),
+  () => import("./PageTransitionOverlay"),
   { ssr: false }
 );
 
-const OVERLAY_DURATION_MS = 1100;  // how long the overlay takes to cover screen
-const PAGE_SLIDE_DURATION = 1.2;   // new page slide-in (seconds, for GSAP)
+const OVERLAY_DURATION_MS = 500; // overlay duration
+const PAGE_ANIMATION_MS = 700;   // page fade/lift duration
 
 export default function PageTransitionWrapper() {
   const pathname = usePathname();
@@ -26,25 +26,22 @@ export default function PageTransitionWrapper() {
 
     const main = document.querySelector("main");
     if (main) {
-      gsap.set(main, { xPercent: -100, pointerEvents: "none" });
+      gsap.set(main, { opacity: 0, y: 30, pointerEvents: "none" });
     }
 
-    // Wait for overlay to fully cover the screen before revealing new page
-    // Must be >= OVERLAY_DURATION_MS to avoid the overlay sliding out early
     const timer = setTimeout(() => {
       window.dispatchEvent(new Event("page-transition-end"));
       if (main) {
         gsap.to(main, {
-          xPercent: 0,
-          duration: PAGE_SLIDE_DURATION,
-          ease: "power3.inOut",
-          onComplete: () => {
-            gsap.set(main, { clearProps: "transform", pointerEvents: "auto" });
-          },
+          opacity: 1,
+          y: 0,
+          duration: PAGE_ANIMATION_MS / 1000,
+          ease: "power3.out",
+          onComplete: () => gsap.set(main, { clearProps: "all", pointerEvents: "auto" }),
         });
       }
       isAnimating.current = false;
-    }, OVERLAY_DURATION_MS + 100);
+    }, OVERLAY_DURATION_MS);
 
     return () => clearTimeout(timer);
   }, [pathname]);
@@ -56,7 +53,6 @@ export default function PageTransitionWrapper() {
 
       const href = anchor.getAttribute("href");
       if (!href) return;
-
       if (
         href.startsWith("http") ||
         href.startsWith("mailto") ||
@@ -69,10 +65,8 @@ export default function PageTransitionWrapper() {
 
       e.preventDefault();
       isAnimating.current = true;
-
       window.dispatchEvent(new Event("page-transition-start"));
 
-      // Navigate after overlay fully covers the screen
       setTimeout(() => {
         router.push(href);
       }, OVERLAY_DURATION_MS);

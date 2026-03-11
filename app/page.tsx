@@ -17,7 +17,6 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
   <div className="antialiased font-body">
-    
       <Intro_Hero/>
     </div>
   );

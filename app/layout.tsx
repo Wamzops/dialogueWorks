@@ -27,6 +27,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="antialiased" suppressHydrationWarning>
         <Navbar />
         <PageTransitionWrapper />
+        
+        
         <main>{children}</main>
         <script
           dangerouslySetInnerHTML={{
