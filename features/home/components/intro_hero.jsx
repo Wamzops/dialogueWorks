@@ -334,14 +334,14 @@ const Intro_Hero = () => {
         }
         .mh-footer-nav {
           display: flex;
-          gap: 28px;
+          gap: 14px;
           margin-bottom: 28px;
         }
         .mh-footer-nav a {
-          font-size: 11px;
+          font-size: 10px;
           font-weight: 500;
           text-transform: uppercase;
-          letter-spacing: 0.14em;
+          letter-spacing: 0.11em;
           color: #1a1814;
           text-decoration: none;
         }
@@ -368,7 +368,7 @@ const Intro_Hero = () => {
         .mh-footer-social a {
           font-size: 10px;
           font-weight: 500;
-          letter-spacing: 0.14em;
+          letter-spacing: 0.11em;
           text-transform: uppercase;
           color: #1a1814;
           text-decoration: none;
@@ -416,7 +416,7 @@ const Intro_Hero = () => {
 
             <FadeIn delay={0.35}>
               <p className="mh-subtext">
-                We're a <a href="/about">team of facilitators, researchers, and
+                We're a <a href="/team">team of facilitators, researchers, and
                 community practitioners</a> dedicated to helping communities
                 surface shared priorities, design locally-led solutions, and
                 build the trust needed for durable peace. We partner with local
@@ -444,7 +444,7 @@ const Intro_Hero = () => {
               })}
             </div>
             <div className="mh-see-more">
-              <button onClick={() => (window.location.href = '/blog')}>View all posts</button>
+              <a href="/blog "><button>View all posts</button></a>
             </div>
           </FadeIn>
         </div>
