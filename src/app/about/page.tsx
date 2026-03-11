@@ -1,6 +1,5 @@
 import AboutHero from "@/features/about/components/about-hero";
 import AboutDetails from "@/features/about/components/about-details";
-import ImageGallery from "@/features/about/components/image-gallery";
 import TeamSection from "@/features/about/components/team-section";
 import CTASection from "@/components/layout/cta-section";
 import { Footer } from "@/components/ui";
