@@ -2,15 +2,15 @@ import fs from 'fs';
 import path from 'path';
 import { bundleMDX } from 'mdx-bundler';
 
-const workDirectory = path.join(process.cwd(), 'src/content/work');
+const postsDirectory = path.join(process.cwd(), '/content/blog');
 
-export async function getAllWork() {
-  const fileNames = fs.readdirSync(workDirectory);
-  const projects = await Promise.all(
+export async function getAllPosts() {
+  const fileNames = fs.readdirSync(postsDirectory);
+  const posts = await Promise.all(
     fileNames
       .filter((fileName) => fileName.endsWith('.mdx'))
       .map(async (fileName) => {
-        const fullPath = path.join(workDirectory, fileName);
+        const fullPath = path.join(postsDirectory, fileName);
         const source = fs.readFileSync(fullPath, 'utf8');
         const { frontmatter } = await bundleMDX({ source });
         
@@ -21,11 +21,11 @@ export async function getAllWork() {
       })
   );
 
-  return projects.sort((a: any, b: any) => (a.date < b.date ? 1 : -1));
+  return posts.sort((a: any, b: any) => (a.date < b.date ? 1 : -1));
 }
 
-export async function getWorkBySlug(slug: string) {
-  const fullPath = path.join(workDirectory, `${slug}.mdx`);
+export async function getPostBySlug(slug: string) {
+  const fullPath = path.join(postsDirectory, `${slug}.mdx`);
   if (!fs.existsSync(fullPath)) return null;
   const source = fs.readFileSync(fullPath, 'utf8');
   

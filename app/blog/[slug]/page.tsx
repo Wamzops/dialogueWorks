@@ -1,27 +1,27 @@
-import { getWorkBySlug, getAllWork } from '@/lib/work';
+import { getPostBySlug, getAllPosts } from '../../../lib/blog';
 import { notFound } from 'next/navigation';
-import MDXContent from '@/features/blog/components/mdx-content';
+import MDXContent from '../../../features/blog/components/mdx-content';
 import Image from 'next/image';
 import CTASection from '@/components/layout/cta-section';
 import { Footer } from '@/components/ui';
 import FadeIn from '@/components/FadeIn';
 
 export async function generateStaticParams() {
-  const projects = await getAllWork();
-  return projects.map((proj: any) => ({
-    slug: proj.slug,
+  const posts = await getAllPosts();
+  return posts.map((post: any) => ({
+    slug: post.slug,
   }));
 }
 
-export default async function WorkPostPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const project = await getWorkBySlug(slug);
+  const post = await getPostBySlug(slug);
 
-  if (!project) {
+  if (!post) {
     return notFound();
   }
 
-  const { frontmatter, code } = project;
+  const { frontmatter, code } = post;
 
   return (
   <div className="antialiased bg-[#f7f7f9] text-primary font-body">
@@ -30,7 +30,7 @@ export default async function WorkPostPage({ params }: { params: Promise<{ slug:
           <header className="mb-24 md:mb-48">
             <FadeIn direction="down" className="mb-10 text-center">
               <span className="text-[12px] font-black uppercase tracking-[0.4em] text-secondary">
-                {frontmatter.client} • {frontmatter.category}
+                {frontmatter.date} • {frontmatter.author}
               </span>
             </FadeIn>
             

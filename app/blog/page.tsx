@@ -1,4 +1,4 @@
-import { getAllPosts } from '@/lib/blog';
+import { getAllPosts } from '../../lib/blog';
 import BlogGrid from '@/features/blog/components/blog-grid';
 import CTASection from '@/components/layout/cta-section';
 import { Footer } from '@/components/ui';
